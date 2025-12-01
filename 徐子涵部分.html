@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的家乡沈阳 - 学生视角</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+       
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+       
+        header {
+            background: linear-gradient(135deg, #d078da 0%, #4c6bd0 100%);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+       
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+       
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+       
+        .subtitle {
+           font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 290;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+           font-family: 'ZCOOL XiaoWei', serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cat-paws {
+            position: absolute;
+            font-size: 1.8rem;
+            z-index: 1;
+            animation: blink 3s infinite;
+            user-select: none;
+            pointer-events: none;
+        }
+        
+        .paw-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0.2s;
+        }
+        
+        .paw-2 {
+            top: 15%;
+            right: 12%;
+            animation-delay: 0.8s;
+        }
+        
+        .paw-3 {
+            bottom: 25%;
+            left: 8%;
+            animation-delay: 1.5s;
+        }
+        
+        .paw-4 {
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 2.1s;
+        }
+        
+        .paw-5 {
+            top: 40%;
+            left: 5%;
+            animation-delay: 0.5s;
+        }
+        
+        .paw-6 {
+            top: 35%;
+            right: 5%;
+            animation-delay: 1.2s;
+        }
+        
+        .paw-7 {
+            bottom: 40%;
+            left: 20%;
+            animation-delay: 1.8s;
+        }
+        
+        .paw-8 {
+            bottom: 35%;
+            right: 20%;
+            animation-delay: 2.5s;
+        }
+        
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(0.9);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cat-paws {
+                font-size: 1.2rem;
+            }
+            
+            .paw-1, .paw-2, .paw-3, .paw-4, .paw-5, .paw-6, .paw-7, .paw-8 {
+                position: absolute;
+            }
+            
+            .paw-1 {
+                top: 15%;
+                left: 5%;
+            }
+            
+            .paw-2 {
+                top: 10%;
+                right: 5%;
+            }
+            
+            .paw-3 {
+                bottom: 20%;
+                left: 3%;
+            }
+            
+            .paw-4 {
+                bottom: 15%;
+                right: 5%;
+            }
+            
+            .paw-5, .paw-6, .paw-7, .paw-8 {
+                display: none;
+            }
+        }
+
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+       
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+       
+        .nav-btn {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            color: #333;
+        }
+       
+        .nav-btn:hover {
+            background-color: #f0f0f0;
+        }
+       
+        .nav-btn.active {
+            color: #bc86e5;
+            font-weight: bold;
+        }
+       
+        .nav-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #8041b0;
+        }
+       
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+       
+        .page {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+        }
+       
+        .page.active {
+            display: block;
+        }
+       
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+       
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+       
+        .card:hover {
+            transform: translateY(-5px);
+        }
+       
+        .card h2 {
+            color: #9b65c9;
+            margin-bottom: 1rem;
+            border-left: 4px solid #a968db;
+            padding-left: 0.8rem;
+        }
+       
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+       
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 180px;
+            position: relative;
+        }
+       
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+       
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+       
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+       
+        .highlight {
+            background-color: #e8f0fe;
+            border-left: 4px solid #b746d4;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+       
+        footer {
+            background-color: #2a2a2a;
+            color: #ddd;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+       
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+       
+        .student-voice {
+            font-style: italic;
+            background-color: #f9f9f9;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+       
+        .student-voice::before {
+            content: '"';
+            font-size: 3rem;
+            color: #a559d4;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+       
+        .fun-fact {
+            background-color: #fff9e6;
+            border: 1px dashed #ffc107;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+       
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+       
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #9a4fc9;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+       
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+       
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+       
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+       
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+       
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #a658c5;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+       
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+       
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        /* 视频区域样式 */
+        .video-section {
+            margin: 2rem 0;
+            text-align: center;
+        }
+       
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+       
+        .video-player {
+            width: 100%;
+            display: block;
+        }
+       
+        .video-caption {
+            padding: 1rem;
+            background-color: rgba(0,0,0,0.8);
+            color: white;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+       
+        .video-title {
+            color: #9b65c9;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+       
+        .video-description {
+            background-color: #f8f8f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            line-height: 1.7;
+        }
+       
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+       
+        .video-btn {
+            background-color: #9b65c9;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+       
+        .video-btn:hover {
+            background-color: #8041b0;
+        }
+       
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+           
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+           
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+           
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+           
+            .video-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+ <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+            <a href="我们来自三个方向.html" style="color: #af18d5e9; text-decoration: none; font-weight: bold; background: white; padding: 8px 15px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+               回到首页
+            </a >
+        </div>
+<body>
+    <header>
+        <!-- 猫爪颜文字 -->
+        <div class="cat-paws paw-1">(=^･ω･^=)</div>
+        <div class="cat-paws paw-2">(^・ω・^ )</div>
+        <div class="cat-paws paw-5">(=^‥^=)</div>
+        <div class="cat-paws paw-6">(^･o･^)ﾉ</div>
+        <div class="cat-paws paw-8">(=^･ｪ･^=)ﾉ彡☆</div>
+        
+        <div class="header-content">
+            <h1>沈水之乡---------沈阳</h1>
+            <p class="subtitle">hi！这是xzh夹带私货的网页展示喵(✧∇✧)</p>
+        </div>
+    </header>
+   
+    <nav>
+        <div class="nav-container">
+            <button class="nav-btn active" data-page="home">首页</button>
+            <button class="nav-btn" data-page="history">历史印记</button>
+            <button class="nav-btn" data-page="food">美食&tips</button>
+            <button class="nav-btn" data-page="attractions">我和沈阳</button>
+            <button class="nav-btn" data-page="campus">写在最后</button>
+        </div>
+    </nav>
+   
+    <div class="container">
+        <!-- 首页 -->
+        <div id="home" class="page active">
+            <div class="card">
+                <div id="home" class="page active">
+    <div class="card">
+         </div>
+                </div>    
+                <h2>嘿!先看xzh碎碎念！</h2>
+                <p>上海的冬天好像不会下雪，所以，我想带你们看看我那并不四季如春的故乡。或许和你们一样，我们的故乡并不像上海那么有趣和繁华，也没有漂亮的景色让人向往。从某一刻起它可能成为了逢年过节才会回去的地方，但它偏偏又承载了太多的记忆，太多爱人，和太多弥足珍贵的地方。足以让你我念念不忘。</p>
+               
+                <div class="student-voice">
+                    我在这座城市出生，成长，城市的韵律的与我的呼吸一同共振。
+                </div>
+               
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="图片1.jpg" alt="沈阳城市景观">
+                        <div class="caption">₍˄·͈༝·͈˄*₎◞ ̑̑</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="图片2.jpg" alt="沈阳故宫">
+                        <div class="caption">(✧∇✧)</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="图片3.jpg" alt="沈阳街头">
+                        <div class="caption">（＾ｖ＾）</div>
+                    </div>
+                </div>
+               
+                <div class="highlight">
+                    <h3>ta的介绍</h3>
+                    <p>沈阳是辽宁省的省会，也是东北地区最大的城市。它有着"一朝发祥地，两代帝王都"的美誉，是中国重要的工业基地和历史文化名城。</p>
+                </div>
+               
+                <div class="fun-fact">
+                    &nbsp;&nbsp;
+                    <div class="example">
+                        <img src="图片4.jpg" alt="示例图片" width="8%" style="float: left; margin-right: 15px;">
+                        <span class="example-text">
+                            <p>沈阳故宫是除北京故宫外中国仅存的皇宫建筑群，与北陵、东陵共同见证着历史沧桑。这座工业重镇如今焕发新生，中街繁华、西塔美食云集，铁西区从工业基地转型为现代文旅地标。<br>传统与现代在此交融，塑造出沈阳豪爽而包容的独特气质。</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- 历史印记 -->
+        <div id="history" class="page">
+            <div class="card">
+                <h2>沈阳的历史足迹</h2>
+                <p>沈阳有着2300多年的建城史，是中国历史文化名城之一。作为清朝的发祥地，这里留下了丰富的历史遗迹。</p>
+               
+                <div class="student-voice">
+                    历史课上老师讲过的沈阳的故事就发生在家的楼下，但真正走在那个耳熟能详的街道上，触摸那些斑驳的遗迹，才真正感受到历史的厚重。
+                </div>
+               
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>公元前300年</h3>
+                            <p>候城建立，是沈阳建城之始</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1625年</h3>
+                            <p>努尔哈赤迁都沈阳，沈阳成为后金都城</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1634年</h3>
+                            <p>皇太极改沈阳为"盛京"</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>1644年</h3>
+                            <p>清朝迁都北京，沈阳成为陪都</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>20世纪初</h3>
+                            <p>沈阳成为中国重要的工业中心</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="card">
+                <h2>重要的历史遗迹</h2>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="故宫.jpg" alt="沈阳故宫">
+                        <div class="caption">沈阳故宫</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="北陵.jpg" alt="北陵公园">
+                        <div class="caption">北陵公园（昭陵）</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="帅府.jpg" alt="张氏帅府">
+                        <div class="caption">张氏帅府</div>
+                    </div>
+                </div>
+               
+                <div class="fun-fact">
+                    <strong>历史小知识：</strong> 沈阳故宫是中国现存的两大皇家宫殿建筑群之一，虽然比北京故宫小，但具有浓郁的满族特色和东北地方风格。
+                </div>
+            </div>
+           
+            <div class="card">
+                <h2 class="video-title">九一八事变历史回顾</h2>
+                <div class="video-section">
+                    <div class="video-container">
+                        <video class="video-player" controls poster="918.jpg">
+                    
+                            <source src="918.mp4" type="video/mp4">
+                      
+                        </video>
+                        <div class="video-caption">
+                            <p>九一八事变（1931年9月18日）是日本帝国主义侵华战争的开端，也是中国人民抗日战争的起点。</p>
+                        </div>
+                    </div>
+                   
+                    <div class="video-controls">
+                        <button class="video-btn" id="playBtn">播放视频</button>
+                        <button class="video-btn" id="pauseBtn">暂停视频</button>
+                        <button class="video-btn" id="muteBtn">静音/取消静音</button>
+                    </div>
+                   
+                    <div class="video-description">
+                        <h3>九一八事变历史意义</h3>
+                        <p>九一八事变是1931年9月18日日本关东军在中国东北制造的一场军事冲突，标志着日本帝国主义侵华战争的开始。事变后，日本迅速占领了中国东北三省，并建立了伪满洲国傀儡政权。</p>
+                        <p>这一事件激发了中国人民的爱国热情和抗日斗志，成为中国抗日战争的起点。每年的9月18日，沈阳都会鸣响防空警报，提醒人们铭记历史，勿忘国耻。</p>
+                        <p>作为沈阳人，了解这段历史对我们来说尤为重要。它不仅是城市记忆的一部分，也是中华民族共同的历史教训。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- 美食天地 -->
+        <div id="food" class="page">
+            <div class="card">
+                <h2>沈阳特色美食</h2>
+                <p>一方水土养一方人，一方人的饮食习惯也代表着他们背后的大地。沈阳的美食融合了满族、朝鲜族和汉族的风味，形成了独具特色的饮食文化。</p>
+               
+                <div class="student-voice">
+                    老边饺子、李连贵熏肉大饼、马家烧麦......这些是xhs上包能搜到的"地标""百年"美食。
+                </div>
+               
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="饺子.jpg" alt="老边饺子">
+                        <div class="caption">老边饺子</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="饼.jpg" alt="熏肉大饼">
+                        <div class="caption">李连贵熏肉大饼</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="烧麦.jpg" alt="马家烧麦">
+                        <div class="caption">马家烧麦</div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="card">
+                <h2>xzh小tips</h2>
+       
+                <div class="highlight">
+                    <h3>中街冰点</h3>
+                    <p>沈阳最繁华的商业街的老品牌，像老冰棍糯米糍中街大果（麻酱绿豆和葡萄干味最好吃）都比较有名（？，中街1994那个牌子也是中街冰点的一部分，但是是后来加入的高端分支了。还有德式小奶糕（类似于上海的小布丁）也是从小吃到大的冰点。</p>
+                </div>
+               
+                <div class="highlight">
+                    <h3>辉山乳业</h3>
+                    <p>一个我从小喝到大的牛奶品牌。小时候特别爱喝甜牛奶的特殊的味道，后来才知道是幼儿园没拆包装就加热的塑料味......很有本地特色味道很好。</p>
+                </div>
+               
+                <div class="highlight">
+                    <h3>西塔街&鲜族料理</h3>
+                    <p>朝鲜族风味的美食天堂，西塔老太太这个在上海很火的烤肉店就是来自那里！特别多超好吃的咸菜，鲜族小吃，米酒烤肉！有一家打糕饭团特别火！还有很多韩式自拍馆......</p>
+                </div>
+               
+                <div class="fun-fact">
+                    <strong>xzh有话说：</strong> 沈阳是一个消费低物价便宜的城市，无论是东北麻辣烫（李海龙，这个真的从小吃到大），路边摊，烧烤，老雪，鸡架还是东北菜。对于孩子而言，最好吃的永远是校门口那家啦。毕竟离家七八年，再回去那个老板还认识我们~
+                </div>
+            </div>
+        </div>
+       
+        <!--我与沈阳-->
+        <div id="attractions" class="page">
+            <div class="card">
+                <h2>我记忆中的沈阳</h2>
+                <p>我的青梅竹马们和我的同学~（＾ｖ＾）</p>
+               
+                <div class="student-voice">
+                   在上海最想他们了。这让我想起一句话叫：此心安处是吾乡。
+                </div>
+               
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="三猪.jpg" alt="沈阳故宫">
+                        <div class="caption">我的小青梅！</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="xhy.jpg" alt="北陵公园">
+                        <div class="caption">最好的朋友</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="爹.jpg" alt="沈阳植物园">
+                        <div class="caption">老徐</div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="card">
+                <h2>作为沈阳人，我会推荐你去：</h2>
+               
+                <div class="highlight">
+                    <h3>棋盘山</h3>
+                    <p>可以滑雪露营烤肉！很适合悠闲的躺一下午，风景很好，秋天有银杏和枫叶，春秋季的东北很适合露营烧烤。</p>
+                </div>
+               
+                <div class="highlight">
+                    <h3>西塔街＋故宫＋918博物馆</h3>
+                    <p>西塔真是延吉平替。（不是上海那个韩国街可以比的）沈阳物价很低很适合去食用一下。剩下俩不必多说，很经典。</p>
+                </div>
+               
+                <div class="highlight">
+                    <h3>沈阳的东北洗浴文化</h3>
+                    <p>很适合和朋友过去躺平（）团建打牌打游戏那种。很多娱乐美食设施都很丰富完善，很值得体验。</p>
+                </div>
+               
+                <div class="fun-fact">
+                    <strong>除此之外：</strong> 辽宁附近的大连丹东也很适合周边游（丹东草莓很美味）
+                </div>
+            </div>
+        </div>
+       
+        <!-- 写在最后-->
+        <div id="campus" class="page">
+            <div class="card">
+            <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+    
+        </div>
+                <h2>那就再看一点照片</h2>
+                <p>xzh继续夹带私货ing</p>
+               
+                <div class="student-voice">
+                    一些和xzh很有羁绊的角落
+               
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="凑数1.jpg" alt="校园生活">
+                        <div class="caption">凑数1</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="凑数2.jpg" alt="学生活动">
+                        <div class="caption">凑数2</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="凑数3.jpg" alt="课外学习">
+                        <div class="caption">凑数3</div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="card">
+                <h2>xzh有话说：</h2>
+               
+                <div class="highlight">
+                    <h3>怎么想到的这个主题？</h3>
+                    <p>一开始的目的是能督促小组内同学积极负责自己的part，让大家有动力一点，后来写着写着发现确实很有动力，夹带了很多私货，自己学了很多制作方法。</p>
+                </div>
+               
+                <div class="highlight">
+                    <h3>为什么写这个主题？</h3>
+                    <p>作为一个典型的新上海人，我一直执念的就是当时没能力（小升初没考上）留在自己的家乡。开学来听到身边让说的最多的话就是想回家。觉得上海陌生也好，物价高也好，美食荒漠不合口味也好，七年前的我也是如此。这个网站仅作为慰藉吧，慰藉身边的人，也慰藉自己。</p>
+                </div>
+               
+                <div class="highlight">
+                    <h3>写在最后</h3>
+                    <p>或许对于很多东北小孩而言，一生的课题就是离开东北。现在的我或许因为在上海也有了很多朋友，有或者是在上海有很多美好的经历，我开始觉得它是一个很好的城市。它的开放，包容和多元接纳了太多来自世界各地的旅人，尤其是女性。无论你有什么样的爱好都不会受到白眼，都会找到自己的同类。你可以说它耗干了年轻人的精气，但它也可以说它曾借你美梦一场。那就祝我们，都可以在这里找到自己的乐园。</p>
+                </div>
+               
+ 
+            </div>
+        </div>
+    </div>
+   
+   <footer>
+        <div class="footer-content">
+      
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2023 一名沈阳学生的城市记录 | 本网站仅用于学习和展示&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容和解释权归523所有</p >
+
+
+        </div>
+    </footer>
+   
+    <script>
+        // qiehuanyemian
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', () => {
+               
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            
+                button.classList.add('active');
+               
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+               
+                const pageId = button.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
+       
+        // shipin
+        const video = document.querySelector('.video-player');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const muteBtn = document.getElementById('muteBtn');
+       
+        playBtn.addEventListener('click', () => {
+            video.play();
+        });
+       
+        pauseBtn.addEventListener('click', () => {
+            video.pause();
+        });
+       
+        muteBtn.addEventListener('click', () => {
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? '取消静音' : '静音';
+        });
+    </script>
+</body>
+</html>
