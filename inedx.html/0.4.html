@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雄关山水 - 阳泉</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        
+        :root {
+            --primary-color: #b68d40;
+            --secondary-color: #d6b161;
+            --dark-color: #8b6b2c;
+            --light-color: #f4e4b5;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        
+        body {
+            background-color: #f9f5eb;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--white);
+            padding: 15px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: var(--dark-color);
+        }
+        
+        /* 主要内容区域 */
+        .main-content {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        /* 页面标题 */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(rgba(182, 141, 64, 0.7), rgba(182, 141, 64, 0.7)), #8b6b2c;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: var(--light-color);
+            font-size: 14px;
+        }
+        
+        /* 页面特定样式 */
+        .page-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        /* 内容区域样式 */
+        .content-block {
+            display: flex;
+            margin-bottom: 40px;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-height: 480px;
+        }
+        
+        .content-img {
+            width: 40%;
+            overflow: hidden;
+        }
+        
+        .content-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content-text {
+            width: 60%;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .content-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 26px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+        
+        .content-text p {
+            margin-bottom: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        /* 特色列表样式 */
+        .feature-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .feature-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* 媒体区域样式 */
+        .media-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .media-item {
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+            }
+            
+            .content-block {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .content-img, .content-text {
+                width: 100%;
+            }
+            
+            .content-img {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">阳泉 - 雄关山水</div>
+            <ul class="nav-links">
+                <li><a href="张领部分.html">首页</a></li>
+                <li><a href="0.2.html">红色摇篮</a></li>
+                <li><a href="0.3.html">忠义藏风</a></li>
+                <li><a href="0.4.html" class="active">雄关山水</a></li>
+            </ul>
+        </div>
+    </header>
+<div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+            <a href="我们来自三个方向.html" style="color: #d5b218; text-decoration: none; font-weight: bold; background: white; padding: 8px 15px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+               回到首页
+            </a >
+        </div>
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>雄关山水 - 阳泉</h1>
+                <p>太行雄关，山水秀美，风景如画</p>
+            </div>
+        </div>
+        
+        <h2 class="page-title">阳泉自然风光</h2>
+        
+        <div class="page-section">
+            <h2 class="section-title">著名景点</h2>
+            
+            <div class="content-block">
+                <div class="content-img">
+                    <img src="娘1.jpg" alt="娘子关">
+                </div>
+                <div class="content-text">
+                    <h3>娘子关</h3>
+                    <p>娘子关位于阳泉市平定县东北，是长城上的著名关隘，有"万里长城第九关"之称。娘子关地势险要，是历代兵家必争之地。这里山势陡峭，关城雄伟，自古以来就是连接山西与河北的重要通道。</p>
+                    <p>娘子关原名"苇泽关"，因唐太宗李世民的妹妹平阳公主曾率领娘子军在此驻守而得名。关城坐落在悬崖之上，桃河水从关前流过，形成了"城在水上坐，水在城下流"的独特景观。这种独特的地理环境使得娘子关在军事上具有极其重要的战略地位。</p>
+                    <p>娘子关瀑布是北方最大的悬泉瀑布，瀑布落差30多米，宽10多米，水流奔腾，气势磅礴，有"水帘洞"之称。瀑布从悬崖峭壁上飞泻而下，水花四溅，声如雷鸣，景色十分壮观。特别是在雨季，瀑布水量充沛，更是气势恢宏。</p>
+                    <p>除了自然景观，娘子关还拥有丰富的人文历史。关城内的古建筑群保存完好，包括关楼、敌楼、烽火台等军事设施，以及庙宇、碑刻等文化遗迹。这些历史遗迹不仅具有很高的文物价值，更是研究古代军事防御体系的重要实物资料。</p>
+                    <p>如今的娘子关已经成为重要的旅游胜地，每年吸引大量游客前来观光。在这里，游客不仅可以欣赏壮美的自然风光，还可以了解丰富的历史文化，感受古代军事要塞的雄伟气势。</p>
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>藏山风景区</h3>
+                    <p>藏山位于阳泉市盂县境内，因藏匿赵氏孤儿而闻名。藏山风景区内峰峦叠嶂，古刹幽深，集自然景观与人文景观于一体。这里山势雄伟，林木葱郁，泉水潺潺，是一处难得的山水胜地。</p>
+                    <p>藏山主要景点有：藏孤洞、报恩祠、寝宫、碑廊等。藏孤洞是当年程婴藏匿赵氏孤儿的地方，洞内幽深神秘，令人肃然起敬。报恩祠是为纪念程婴和公孙杵臼的忠义精神而建，祠内供奉着两位义士的塑像，香火不断。</p>
+                    <p>藏山不仅风景秀丽，更因赵氏孤儿的故事而充满了忠义文化的氛围，是感受中国传统忠义精神的绝佳之地。景区内的每一处景点都蕴含着深厚的历史文化内涵，让游客在欣赏美景的同时，也能感受到中华传统文化的魅力。</p>
+                    <p>藏山的自然景观也十分丰富，有"藏山十景"之说，包括"天门锁云"、"飞岩叠翠"、"龙潭漱玉"等。这些景点各具特色，有的险峻奇特，有的清幽雅致，有的气势磅礴，共同构成了藏山独特的山水画卷。</p>
+                    <p>近年来，藏山风景区不断完善旅游设施，开发新的旅游项目，成为阳泉市重要的文化旅游品牌。每年举办的藏山文化旅游节，更是吸引了大量游客前来参观，促进了当地旅游业的发展。</p>
+                    <ul class="feature-list">
+                        <li>藏孤洞：赵氏孤儿藏身之处，洞内幽深神秘</li>
+                        <li>报恩祠：纪念程婴和公孙杵臼的忠义精神</li>
+                        <li>天门锁云：藏山十景之一，云雾缭绕如入仙境</li>
+                        <li>龙潭漱玉：清澈见底的泉水，景色优美</li>
+                    </ul>
+                </div>
+                <div class="content-img">
+                    <img src="藏山.jpg" alt="藏山">
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-img">
+                    <img src="狮脑山.jpg" alt="狮脑山">
+                </div>
+                <div class="content-text">
+                    <h3>狮脑山森林公园</h3>
+                    <p>狮脑山位于阳泉市区西南部，是阳泉市的制高点，海拔1160米。因山形如狮头而得名。狮脑山不仅是一座自然山体，更是一座具有重要历史意义的革命纪念地。</p>
+                    <p>狮脑山森林公园是阳泉市最大的城市森林公园，园内森林茂密，空气清新，是市民休闲健身的好去处。公园内植被丰富，有松树、柏树、槐树等多种树种，四季景色各异。春季山花烂漫，夏季绿树成荫，秋季层林尽染，冬季银装素裹。</p>
+                    <p>狮脑山上有百团大战纪念碑和纪念馆，纪念在百团大战中牺牲的八路军将士。站在狮脑山上，可以俯瞰阳泉市区全景。纪念碑高耸入云，庄严肃穆，是缅怀革命先烈、进行爱国主义教育的重要场所。</p>
+                    <p>除了革命纪念设施，狮脑山还建有完善的旅游设施，包括观景台、休息亭、步行道等。游客可以沿着蜿蜒的山路攀登，欣赏沿途的美景，感受大自然的魅力。山顶的观景台是观赏阳泉市区全景的最佳位置，在这里可以一览城市全貌。</p>
+                    <p>狮脑山森林公园不仅是市民休闲娱乐的好去处，也是了解阳泉革命历史的重要窗口。每年都有大量学生、游客前来参观学习，接受革命传统教育。这里已经成为阳泉市重要的红色旅游基地和生态旅游景点。</p>
+                    <ul class="feature-list">
+                        <li>百团大战纪念碑：纪念革命先烈的重要场所</li>
+                        <li>山顶观景台：俯瞰阳泉市区全景的最佳位置</li>
+                        <li>森林步道：蜿蜒曲折，适合徒步健身</li>
+                        <li>四季美景：春赏花、夏避暑、秋观叶、冬看雪</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-section">
+            <h2 class="section-title">自然风光</h2>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>翠枫山自然风景区</h3>
+                    <p>翠枫山位于阳泉市郊区，是一处集自然风光、人文景观和休闲娱乐为一体的综合性旅游区。这里山清水秀，环境优美，是远离城市喧嚣、亲近自然的理想之地。</p>
+                    <p>景区内山势险峻，森林茂密，秋季满山红叶，层林尽染，景色十分壮观。主要景点有：天池、石门、古栈道、观音洞等。天池是一处高山湖泊，湖水清澈见底，四周群山环抱，景色如画。石门是一处天然形成的石拱门，造型奇特，令人叹为观止。</p>
+                    <p>翠枫山不仅是观光旅游的好去处，还是科普教育和户外运动的好地方，每年吸引大量游客前来观光游览。景区内设有科普教育基地，向游客介绍当地的生态环境和动植物资源。同时，还开发了徒步、攀岩等户外运动项目，满足不同游客的需求。</p>
+                    <p>翠枫山的四季景色各具特色。春季，山花烂漫，生机勃勃；夏季，绿树成荫，凉爽宜人；秋季，枫叶红遍，层林尽染；冬季，银装素裹，分外妖娆。无论哪个季节前来，都能欣赏到不同的美景。</p>
+                    <p>近年来，翠枫山风景区不断加强基础设施建设，提升服务质量，成为阳泉市重要的生态旅游品牌。景区内的民宿、农家乐等配套设施不断完善，为游客提供了更加舒适的旅游体验。</p>
+                    <ul class="feature-list">
+                        <li>天池：高山湖泊，湖水清澈见底</li>
+                        <li>石门：天然石拱门，造型奇特</li>
+                        <li>古栈道：蜿蜒于山间的古老道路</li>
+                        <li>观音洞：神秘洞穴，香火旺盛</li>
+                    </ul>
+                </div>
+                <div class="content-img">
+                    <img src="翠峰山.jpg" alt="翠枫山">
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-img">
+                    <img src="桃林沟(1).jpg" alt="桃林沟（1）">
+                </div>
+                <div class="content-text">
+                    <h3>桃林沟景区</h3>
+                    <p>桃林沟位于阳泉市郊区，是一处以桃花为主题的生态旅游区。每年春季，万亩桃花盛开，形成一片粉色的海洋，景色十分壮观。这里已经成为阳泉市春季旅游的热门目的地。</p>
+                    <p>景区内不仅有美丽的自然风光，还有丰富的娱乐设施和农家乐项目，是市民周末休闲度假的好去处。游客可以在这里赏花、拍照、品尝农家美食，体验田园生活的乐趣。景区还设有儿童游乐区、休闲广场等设施，满足不同年龄段游客的需求。</p>
+                    <p>桃林沟景区还定期举办桃花节、采摘节等活动，吸引大量游客前来观光体验。桃花节期间，景区会举办各种文化活动和表演，如歌舞表演、民俗展示、摄影比赛等，为游客提供丰富多彩的旅游体验。</p>
+                    <p>除了春季赏花，桃林沟其他季节也有不同的魅力。夏季，绿树成荫，是避暑纳凉的好去处；秋季，果实累累，可以体验采摘的乐趣；冬季，银装素裹，别有一番风味。这里已经成为四季皆宜的旅游胜地。</p>
+                    <p>桃林沟景区的发展，不仅带动了当地旅游业的发展，也促进了农民增收。景区周边的农户通过开办农家乐、销售农副产品等方式，实现了增收致富。这种"旅游+农业"的发展模式，为乡村振兴提供了新的思路。</p>
+                    <ul class="feature-list">
+                        <li>万亩桃园：春季赏花的绝佳去处</li>
+                        <li>农家乐：体验田园生活，品尝农家美食</li>
+                        <li>桃花节：春季重要文化活动</li>
+                        <li>四季旅游：不同季节有不同的旅游体验</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <h3>阳泉 - 雄关山水</h3>
+            <ul class="footer-links">
+                <li><a href="张领部分.html">首页</a></li>
+                <li><a href="0.2.html">红色摇篮</a></li>
+                <li><a href="0.3.html">忠义藏风</a></li>
+                <li><a href="0.4.html">雄关山水</a></li>
+            </ul>
+            <p class="copyright">© 2025 ZL21 | 设计制作</p>
+        </div>
+    </footer>
+</body>
+</html>

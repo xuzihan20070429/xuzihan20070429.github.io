@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忠义藏风 - 阳泉</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        
+        :root {
+            --primary-color: #b68d40;
+            --secondary-color: #d6b161;
+            --dark-color: #8b6b2c;
+            --light-color: #f4e4b5;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        
+        body {
+            background-color: #f9f5eb;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--white);
+            padding: 15px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: var(--dark-color);
+        }
+        
+        /* 主要内容区域 */
+        .main-content {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        /* 页面标题 */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(rgba(182, 141, 64, 0.7), rgba(182, 141, 64, 0.7)), #8b6b2c;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: var(--light-color);
+            font-size: 14px;
+        }
+        
+        /* 页面特定样式 */
+        .page-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        /* 内容区域样式 */
+        .content-block {
+            display: flex;
+            margin-bottom: 40px;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-height: 450px;
+        }
+        
+        .content-img {
+            width: 40%;
+            overflow: hidden;
+        }
+        
+        .content-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content-text {
+            width: 60%;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .content-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 26px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+        
+        .content-text p {
+            margin-bottom: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        /* 媒体区域样式 */
+        .media-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .media-item {
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+            }
+            
+            .content-block {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .content-img, .content-text {
+                width: 100%;
+            }
+            
+            .content-img {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+            <a href="我们来自三个方向.html" style="color: #d5a918; text-decoration: none; font-weight: bold; background: white; padding: 8px 15px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+               回到首页
+            </a >
+        </div>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">阳泉 - 忠义藏风</div>
+            <ul class="nav-links">
+                <li><a href="张领部分.html">首页</a></li>
+                <li><a href="0.2.html">红色摇篮</a></li>
+                <li><a href="0.3.html" class="active">忠义藏风</a></li>
+                <li><a href="0.4.html">雄关山水</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>忠义藏风 - 阳泉</h1>
+                <p>赵氏孤儿发源地，忠义文化传承千年</p>
+            </div>
+        </div>
+        
+        <h2 class="page-title">阳泉忠义文化</h2>
+        
+        <div class="page-section">
+            <h2 class="section-title">赵氏孤儿与藏山</h2>
+            
+            <div class="content-block">
+                <div class="content-img">
+                    <img src="赵氏孤儿.jpg" alt="赵氏孤儿">
+                </div>
+                <div class="content-text">
+                    <h3>赵氏孤儿故事</h3>
+                    <p>藏山位于阳泉市盂县境内，因春秋时期藏匿赵氏孤儿而闻名。据《史记》记载，春秋时期晋国大夫赵朔被奸臣屠岸贾所害，赵氏满门被诛。在这场惨烈的政治斗争中，赵氏家族几乎被灭门，唯有赵朔的妻子庄姬怀有身孕，得以幸免。</p>
+                    <p>赵朔的门客公孙杵臼和程婴为保护赵氏遗孤赵武，设计救出婴儿，藏于盂山（今藏山）之中。程婴牺牲自己的儿子，公孙杵臼献出生命，最终保全了赵氏血脉。这一壮举体现了中国古代士人为信义不惜牺牲生命的崇高精神。</p>
+                    <p>十五年后，赵武长大成人，在韩厥等人的帮助下重振赵氏，最终报仇雪恨。藏山因此成为忠义精神的象征，被誉为"忠义藏山"。这个故事不仅在中国历史上影响深远，更是被改编成各种戏剧、电影，成为中华文化中忠义精神的经典代表。</p>
+                    <p>赵氏孤儿的故事体现了中国古代"士为知己者死"的忠义观念。程婴和公孙杵臼的行为，超越了个人生死，体现了对道义的坚守。这种精神在阳泉代代相传，成为当地文化的重要组成部分。</p>
+                    <p>藏山作为这一历史事件的发生地，每年都吸引着大量游客前来参观瞻仰。人们在这里不仅能够欣赏美丽的自然风光，更能够感受到浓厚的忠义文化氛围，接受传统美德的熏陶。</p>
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>忠义精神传承</h3>
+                    <p>赵氏孤儿的故事在中国历史上影响深远，体现了忠诚、信义、牺牲的精神品质。这种忠义精神在阳泉代代相传，成为当地文化的重要组成部分。从古至今，阳泉人民始终以忠义为荣，将这种精神内化于心、外化于行。</p>
+                    <p>藏山作为赵氏孤儿的藏身地，每年吸引大量游客前来参观，感受忠义文化的熏陶。藏山风景区内的藏孤洞、报恩祠、程婴祠等景点，都是忠义精神的实物见证。这些历史遗迹不仅具有重要的文物价值，更是传承忠义文化的重要载体。</p>
+                    <p>阳泉人民以忠义精神为荣，这种精神也影响着当地的社会风尚和价值观。在阳泉，忠义不仅仅是一种历史记忆，更是一种活的文化传统。它体现在人们的日常生活中，表现在社会交往的各个方面。</p>
+                    <p>近年来，阳泉市政府高度重视忠义文化的传承与发展，通过举办文化节、学术研讨会等形式，深入挖掘忠义文化的时代价值。同时，将忠义文化融入学校教育、社会教育，让这一宝贵的精神财富在新的历史条件下焕发出新的生机与活力。</p>
+                    <p>忠义精神作为中华民族的优秀传统文化，在新时代仍然具有重要的现实意义。它教导人们要忠诚于国家、信守于朋友、尽责于职守，这些品质在构建和谐社会的过程中发挥着不可替代的作用。</p>
+                </div>
+                <div class="content-img">
+                    <img src="赵1.webp" alt="藏山风景区">
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-section">
+            <h2 class="section-title">其他忠义人物</h2>
+            
+            <div class="content-block">
+                <div class="content-img">
+                    <img src="关公庙.jpg" alt="关公文化">
+                </div>
+                <div class="content-text">
+                    <h3>关公文化与忠义精神</h3>
+                    <p>阳泉地处山西，深受关公文化影响。关公（关羽）是忠义精神的化身，其"忠义仁勇"的精神品质在阳泉深入人心。关公文化作为中国传统文化的重要组成部分，在阳泉有着深厚的群众基础和广泛的社会影响。</p>
+                    <p>阳泉境内有多处关帝庙，每年农历五月十三日的关公诞辰，当地民众都会举行隆重的祭祀活动，传承忠义文化。这些祭祀活动不仅是一种宗教仪式，更是一种文化传承的方式。通过祭祀关公，人们表达对忠义精神的崇敬，传承中华民族的传统美德。</p>
+                    <p>关公文化对阳泉人的价值观产生了深远影响，忠义、诚信、仁爱、勇毅成为阳泉人推崇的道德品质。在日常生活中，阳泉人常常以关公为榜样，讲究信义、重视承诺。这种文化熏陶，塑造了阳泉人独特的性格特征和精神风貌。</p>
+                    <p>关公文化在阳泉的传承与发展，不仅体现在宗教祭祀活动中，更体现在文学艺术、民俗活动等各个方面。阳泉的戏曲、书画、雕塑等艺术形式中，关公题材的作品占有重要地位。这些艺术作品不仅具有很高的审美价值，更是传承忠义文化的重要载体。</p>
+                    <p>在新时代，关公文化被赋予了新的内涵。它不仅是传统美德的象征，更是社会主义核心价值观的重要体现。阳泉人民在传承关公文化的同时，也在不断创新和发展，让这一古老的文化传统在新的历史条件下焕发出新的生机与活力。</p>
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>近现代忠义人物</h3>
+                    <p>阳泉历史上涌现出许多忠义之士，如近代女作家石评梅。石评梅是五四新文化运动中著名的女作家，她与革命家高君宇的爱情故事感人至深。石评梅不仅是一位杰出的文学家，更是一位具有崇高品德的女性。</p>
+                    <p>高君宇去世后，石评梅在他的墓碑上刻下了"我是宝剑，我是火花"的诗句，并终身未嫁，守护着他们的爱情，展现了忠贞不渝的精神。这种对爱情的忠贞，体现了中国传统文化中对感情的珍视和对承诺的坚守。</p>
+                    <p>石评梅的文学作品充满了对爱情、理想和革命的忠贞，她是阳泉忠义文化在近现代的代表人物之一。她的作品不仅具有很高的文学价值，更是研究中国近现代思想文化的重要资料。通过她的作品，我们可以感受到那个时代知识分子的精神追求和价值取向。</p>
+                    <p>除了石评梅，阳泉还涌现出许多其他的忠义人物。他们在各自的岗位上，以不同的方式践行着忠义精神。有的在革命战争中英勇牺牲，有的在和平建设中默默奉献，有的在文化教育领域辛勤耕耘。这些人物的故事，构成了阳泉忠义文化的重要组成部分。</p>
+                    <p>这些近现代忠义人物的事迹，不仅丰富了阳泉忠义文化的内涵，更为后人树立了学习的榜样。他们的精神，激励着一代又一代的阳泉人，在各自的岗位上恪尽职守、奉献社会，将忠义精神发扬光大。</p>
+                </div>
+                <div class="content-img">
+                    <img src="石评梅.jpg" alt="石评梅">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <h3>阳泉 - 忠义藏风</h3>
+            <ul class="footer-links">
+                <li><a href="张领部分.html">首页</a></li>
+                <li><a href="0.2.html">红色摇篮</a></li>
+                <li><a href="0.3.html">忠义藏风</a></li>
+                <li><a href="0.4.html">雄关山水</a></li>
+            </ul>
+            <p class="copyright">© 2023 阳泉家乡介绍网站 | 设计制作</p>
+        </div>
+    </footer>
+</body>
+</html>
