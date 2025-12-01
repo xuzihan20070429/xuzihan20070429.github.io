@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国四省市展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #e9bbe1;
+            color: #6a596c;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #f088d6, #b078b5);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #efd2e5;
+        }
+        
+        .regions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .region-card {
+            background: rgb(247, 202, 227);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .region-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(114, 35, 67, 0.15);
+        }
+        
+        .card-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .card-info {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .card-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlights {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        
+        .highlights h4 {
+            margin-bottom: 0.5rem;
+            color: #1a6aa2;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+        
+        /* 详情页样式 */
+        .detail-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #1a6aa2;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #2c3e50;
+        }
+        
+        .detail-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .detail-section {
+            margin-bottom: 2rem;
+        }
+        
+        .detail-section h3 {
+            color: #1a6aa2;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .detail-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .attractions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .attraction {
+            text-align: center;
+        }
+        
+        .attraction img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .regions {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .detail-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>中国四省市展示</h1>
+            <p class="subtitle">探索上海、辽宁、吉林和山西的独特魅力</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="intro">
+            <p>中国是一个幅员辽阔、文化多样的国家，每个地区都有其独特的自然风光、历史文化和经济发展特色。</p>
+            <p>本页面将带您简要了解上海、辽宁、吉林和山西四个地区的基本情况。</p>
+        </div>
+        
+        <div class="regions">
+            <!-- 上海 -->
+            <a href="#shanghai-detail" class="region-card">
+                <img src="https://images.unsplash.com/photo-1503386435952-d7918b99d4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="上海" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">上海</h2>
+                    <div class="card-info">
+                        <p><strong>简称：</strong>沪、申</p>
+                        <p><strong>人口：</strong>约2487万</p>
+                        <p><strong>面积：</strong>6340.5平方公里</p>
+                        <p><strong>GDP：</strong>约4.32万亿元</p>
+                    </div>
+                    <div class="highlights">
+                        <h4>特色亮点</h4>
+                        <p>中国最大的经济中心，国际金融、贸易和航运中心，拥有外滩、东方明珠等著名地标。</p>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- 辽宁 -->
+            <a href="#liaoning-detail" class="region-card">
+                <img src="https://images.unsplash.com/photo-1598979341166-15418b0f1b0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="辽宁" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">辽宁</h2>
+                    <div class="card-info">
+                        <p><strong>简称：</strong>辽</p>
+                        <p><strong>人口：</strong>约4259万</p>
+                        <p><strong>面积：</strong>14.8万平方公里</p>
+                        <p><strong>GDP：</strong>约2.51万亿元</p>
+                    </div>
+                    <div class="highlights">
+                        <h4>特色亮点</h4>
+                        <p>中国重要的重工业基地，拥有沈阳故宫、大连海滨等旅游资源，是东北地区经济最发达的省份。</p>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- 吉林 -->
+            <a href="#jilin-detail" class="region-card">
+                <img src="https://images.unsplash.com/photo-1547970812-0a905331b5c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="吉林" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">吉林</h2>
+                    <div class="card-info">
+                        <p><strong>简称：</strong>吉</p>
+                        <p><strong>人口：</strong>约2407万</p>
+                        <p><strong>面积：</strong>18.7万平方公里</p>
+                        <p><strong>GDP：</strong>约1.23万亿元</p>
+                    </div>
+                    <div class="highlights">
+                        <h4>特色亮点</h4>
+                        <p>中国重要的商品粮基地，以长白山、雾凇等自然景观闻名，也是中国汽车工业的摇篮。</p>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- 山西 -->
+            <a href="#shanxi-detail" class="region-card">
+                <img src="https://images.unsplash.com/photo-1592210456173-54c49f58572c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="山西" class="card-image">
+                <div class="card-content">
+                    <h2 class="card-title">山西</h2>
+                    <div class="card-info">
+                        <p><strong>简称：</strong>晋</p>
+                        <p><strong>人口：</strong>约3491万</p>
+                        <p><strong>面积：</strong>15.6万平方公里</p>
+                        <p><strong>GDP：</strong>约1.76万亿元</p>
+                    </div>
+                    <div class="highlights">
+                        <h4>特色亮点</h4>
+                        <p>中国重要的能源基地，煤炭资源丰富，拥有平遥古城、云冈石窟等众多历史文化遗迹。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <!-- 上海详情页 -->
+    <div id="shanghai-detail" class="detail-container" style="display: none;">
+        <a href="#" class="back-link">← 返回主页</a>
+        <div class="detail-header">
+            <h1>上海</h1>
+            <p>中国的经济中心和国际大都市</p>
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1503386435952-d7918b99d4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="上海" class="detail-image">
+        
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>基本信息</h3>
+                <p><strong>简称：</strong>沪、申</p>
+                <p><strong>人口：</strong>约2487万</p>
+                <p><strong>面积：</strong>6340.5平方公里</p>
+                <p><strong>GDP：</strong>约4.32万亿元</p>
+                <p><strong>地理位置：</strong>位于中国东部，长江三角洲前缘，东濒东海，南临杭州湾</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>历史与文化</h3>
+                <p>上海历史悠久，早在6000年前就有先民在此居住。春秋时期属吴国，战国时期先后属越国和楚国。1291年，上海正式建县。1843年开埠后，上海迅速发展成为远东最大的城市和经济中心。</p>
+                <p>上海是海派文化的发源地，融合了吴越文化和西方文化元素，形成了独特的文化风格。上海话、本帮菜、石库门建筑等都是上海文化的代表。</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>经济与产业</h3>
+                <p>上海是中国最大的经济中心，也是国际金融、贸易和航运中心。浦东新区是中国改革开放的重要标志，陆家嘴金融区聚集了众多国内外金融机构。</p>
+                <p>上海的主要产业包括金融、贸易、航运、信息技术、汽车制造、生物医药等。上海自贸区是中国第一个自由贸易试验区。</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>著名景点</h3>
+                <div class="attractions">
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1503386435952-d7918b99d4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="外滩">
+                        <p>外滩</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1545912452-8aea7e25a3d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="东方明珠">
+                        <p>东方明珠</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="豫园">
+                        <p>豫园</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1540202403-a2c2908e9c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="南京路">
+                        <p>南京路步行街</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 辽宁详情页 -->
+    <div id="liaoning-detail" class="detail-container" style="display: none;">
+        <a href="#" class="back-link">← 返回主页</a>
+        <div class="detail-header">
+            <h1>辽宁</h1>
+            <p>中国重要的重工业基地</p>
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1598979341166-15418b0f1b0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="辽宁" class="detail-image">
+        
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>基本信息</h3>
+                <p><strong>简称：</strong>辽</p>
+                <p><strong>人口：</strong>约4259万</p>
+                <p><strong>面积：</strong>14.8万平方公里</p>
+                <p><strong>GDP：</strong>约2.51万亿元</p>
+                <p><strong>地理位置：</strong>位于中国东北地区南部，南濒黄海、渤海，东南与朝鲜隔鸭绿江相望</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>历史与文化</h3>
+                <p>辽宁历史悠久，是中华民族发祥地之一。早在旧石器时代就有人类在此活动。辽宁是清朝的发祥地，沈阳故宫是中国现存的两大宫殿建筑群之一。</p>
+                <p>辽宁文化融合了满族、汉族等多民族文化元素，形成了独特的东北文化。辽宁的民间艺术如二人转、评剧等深受人们喜爱。</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>经济与产业</h3>
+                <p>辽宁是中国重要的重工业基地，素有"共和国长子"之称。主要工业包括装备制造、冶金、石化、电子信息等。</p>
+                <p>辽宁也是中国重要的粮食生产基地和沿海省份，大连港是中国北方重要的对外贸易港口。</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>著名景点</h3>
+                <div class="attractions">
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1598979341166-15418b0f1b0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="沈阳故宫">
+                        <p>沈阳故宫</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="大连星海广场">
+                        <p>大连星海广场</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1540202403-a2c2908e9c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="千山">
+                        <p>千山风景区</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="本溪水洞">
+                        <p>本溪水洞</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 吉林详情页 -->
+    <div id="jilin-detail" class="detail-container" style="display: none;">
+        <a href="#" class="back-link">← 返回主页</a>
+        <div class="detail-header">
+            <h1>吉林</h1>
+            <p>中国重要的商品粮基地和汽车工业摇篮</p>
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1547970812-0a905331b5c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="吉林" class="detail-image">
+        
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>基本信息</h3>
+                <p><strong>简称：</strong>吉</p>
+                <p><strong>人口：</strong>约2407万</p>
+                <p><strong>面积：</strong>18.7万平方公里</p>
+                <p><strong>GDP：</strong>约1.23万亿元</p>
+                <p><strong>地理位置：</strong>位于中国东北地区中部，与俄罗斯、朝鲜接壤</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>历史与文化</h3>
+                <p>吉林是满族的发祥地之一，也是朝鲜族的主要聚居区。吉林的历史可以追溯到远古时期，是高句丽、渤海国等古代政权的重要活动区域。</p>
+                <p>吉林文化多元，既有浓郁的东北文化特色，又有独特的朝鲜族文化风情。吉林的冰雪文化、雾凇文化等独具特色。</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>经济与产业</h3>
+                <p>吉林是中国重要的商品粮生产基地，素有"黄金玉米带"之称。汽车制造是吉林的支柱产业，长春是中国汽车工业的摇篮。</p>
+                <p>吉林也是中国重要的石化基地和医药产业基地，长白山自然资源丰富，旅游业发展迅速。</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>著名景点</h3>
+                <div class="attractions">
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1547970812-0a905331b5c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="长白山">
+                        <p>长白山</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1570665746177-8c5c9b17b3d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="雾凇">
+                        <p>吉林雾凇</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1540202403-a2c2908e9c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="伪满皇宫">
+                        <p>伪满皇宫博物院</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="净月潭">
+                        <p>净月潭国家森林公园</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 山西详情页 -->
+    <div id="shanxi-detail" class="detail-container" style="display: none;">
+        <a href="#" class="back-link">← 返回主页</a>
+        <div class="detail-header">
+            <h1>山西</h1>
+            <p>中国重要的能源基地和历史文化大省</p>
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1592210456173-54c49f58572c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="山西" class="detail-image">
+        
+        <div class="detail-content">
+            <div class="detail-section">
+                <h3>基本信息</h3>
+                <p><strong>简称：</strong>晋</p>
+                <p><strong>人口：</strong>约3491万</p>
+                <p><strong>面积：</strong>15.6万平方公里</p>
+                <p><strong>GDP：</strong>约1.76万亿元</p>
+                <p><strong>地理位置：</strong>位于中国华北地区，太行山以西，黄河中游东岸</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>历史与文化</h3>
+                <p>山西是中华民族发祥地之一，有"五千年文明看山西"之说。山西是晋文化的发源地，历史上曾是晋国、北魏等政权的中心。</p>
+                <p>山西文化底蕴深厚，晋商文化、佛教文化、古建筑文化等独具特色。山西是中国现存古建筑最多的省份，有"中国古代建筑博物馆"之称。</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>经济与产业</h3>
+                <p>山西是中国重要的能源基地，煤炭储量居全国前列。近年来，山西积极推进经济转型，发展新能源、文化旅游等产业。</p>
+                <p>山西的醋业、酒业等传统产业闻名全国，老陈醋、汾酒等都是山西的特色产品。</p>
+            </div>
+            
+            <div class="detail-section">
+                <h3>著名景点</h3>
+                <div class="attractions">
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1592210456173-54c49f58572c?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="平遥古城">
+                        <p>平遥古城</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="云冈石窟">
+                        <p>云冈石窟</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1540202403-a2c2908e9c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="五台山">
+                        <p>五台山</p>
+                    </div>
+                    <div class="attraction">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="壶口瀑布">
+                        <p>壶口瀑布</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 中国四省市展示 | 数据仅供参考</p>
+        </div>
+    </footer>
+
+    <script>
+        // 页面导航功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有地区卡片链接
+            const regionLinks = document.querySelectorAll('.region-card');
+            
+            // 获取所有详情页容器
+            const detailContainers = document.querySelectorAll('.detail-container');
+            
+            // 获取主页面容器
+            const mainPage = document.querySelector('.container');
+            
+            // 获取返回链接
+            const backLinks = document.querySelectorAll('.back-link');
+            
+            // 为每个地区卡片添加点击事件
+            regionLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    
+                    // 隐藏主页面
+                    mainPage.style.display = 'none';
+                    
+                    // 隐藏所有详情页
+                    detailContainers.forEach(container => {
+                        container.style.display = 'none';
+                    });
+                    
+                    // 显示目标详情页
+                    document.getElementById(targetId).style.display = 'block';
+                });
+            });
+            
+            // 为返回链接添加点击事件
+            backLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 显示主页面
+                    mainPage.style.display = 'block';
+                    
+                    // 隐藏所有详情页
+                    detailContainers.forEach(container => {
+                        container.style.display = 'none';
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

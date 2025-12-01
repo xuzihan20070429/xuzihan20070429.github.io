@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>伪满史迹 - 记忆长存</title>
+    <style>
+        /* 样式与主页相同，可保存为单独CSS文件或保留 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", sans-serif; background: #f5fff5; color: #2c3e50; }
+        .header { background: linear-gradient(to right, #27ae60, #2ecc71); padding: 2rem; text-align: center; color: white; }
+        .nav { background: #34495e; padding: 1rem; text-align: center; }
+        .nav a { color: #ecf0f1; text-decoration: none; margin: 0 1.5rem; font-weight: bold; }
+        .nav a:hover { color: #2ecc71; }
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        .content-section { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        .media-item { background: #ecf0f1; padding: 1rem; border-radius: 5px; text-align: center; }
+        audio, video { width: 100%; margin-top: 0.5rem; }
+        .footer { text-align: center; padding: 1rem; background: #34495e; color: #ecf0f1; margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>伪满史迹 - 历史印记</h1>
+        <p>见证历史，珍爱和平</p>
+    </div>
+    
+    <div class="nav">
+        <a href="蔡佳益部分.html">首页</a>
+        <a href="weiman.html">伪满史迹</a>
+        <a href="chuncheng.html">北国春城</a>
+        <a href="guandong.html">关东情韵</a>
+    </div>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>伪满皇宫博物院</h2>
+            <p>伪满皇宫是中国清朝末代皇帝爱新觉罗·溥仪充当伪满洲国皇帝时的宫廷遗址，是日本帝国主义武力侵占中国东北、推行法西斯殖民统治的历史见证。</p>
+            
+            <div class="media-grid">
+                <div class="media-item">
+                    <img src="weimanhuanggong.webp" alt="伪满皇宫外观" style="width:100%; border-radius:5px;">
+                    <p>伪满皇宫主体建筑</p>
+                </div>
+                
+                <div class="media-item">
+                    <h3>历史讲解</h3>
+                    <audio controls>
+                        <source src="jiangjie.mp3" type="audio/mpeg">
+                        
+                    </audio>
+                    <p>聆听历史的声音</p>
+                </div>
+                
+                <div class="media-item">
+                    <h3>虚拟游览</h3>
+                    <video controls>
+                        <source src="游览.mp4" type="video/mp4">
+                        
+                    </video>
+                    <p>线上参观博物院</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>八大部建筑群</h2>
+            <p>伪满时期的八大部建筑散布在长春市中心，这些建筑具有重要的历史价值和建筑艺术价值，是研究近代历史的重要实物资料。</p>
+            
+            <div class="media-grid">
+                <div class="media-item">
+                    <img src="badabu.webp" alt="八大部建筑" style="width:100%; border-radius:5px;">
+                    <p>保存完好的历史建筑</p>
+                </div>
+                
+                <div class="media-item">
+                    <h3>建筑特色介绍</h3>
+                    <video controls>
+                        <source src="建筑.mp4" type="video/mp4">
+                        您的浏览器不支持音频播放
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p> 2025 寝室长的家乡长春 - 伪满史迹</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红色摇篮 - 阳泉</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+        
+        :root {
+            --primary-color: #b68d40;
+            --secondary-color: #d6b161;
+            --dark-color: #8b6b2c;
+            --light-color: #f4e4b5;
+            --text-color: #333333;
+            --white: #ffffff;
+        }
+        
+        body {
+            background-color: #f9f5eb;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--white);
+            padding: 15px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: var(--dark-color);
+        }
+        
+        /* 主要内容区域 */
+        .main-content {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        /* 页面标题 */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(rgba(182, 141, 64, 0.7), rgba(182, 141, 64, 0.7)), #8b6b2c;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: var(--light-color);
+            font-size: 14px;
+        }
+        
+        /* 页面特定样式 */
+        .page-section {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        /* 内容区域样式 */
+        .content-block {
+            display: flex;
+            margin-bottom: 40px;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-height: 400px;
+        }
+        
+        .content-img {
+            width: 40%;
+            overflow: hidden;
+        }
+        
+        .content-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content-text {
+            width: 60%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .content-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .content-text p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        /* 媒体区域样式 */
+        .media-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .media-item {
+            flex: 1 1 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* 时间轴样式 */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--white);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 10px 20px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+            }
+            
+            .content-block {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .content-img, .content-text {
+                width: 100%;
+            }
+            
+            .content-img {
+                height: 250px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">阳泉 - 红色摇篮</div>
+            <ul class="nav-links">
+                <li><a href="张领部分.html">首页</a></li>
+                <li><a href="0.2.html" class="active">红色摇篮</a></li>
+                <li><a href="0.3.html">忠义藏风</a></li>
+                <li><a href="0.4.html">雄关山水</a></li>
+            </ul>
+        </div>
+    </header>
+<div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+            <a href="我们来自三个方向.html" style="color: #d5bf18; text-decoration: none; font-weight: bold; background: white; padding: 8px 15px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+               回到首页
+            </a >
+        </div>
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>红色摇篮 - 阳泉</h1>
+                <p>中国共产党创建的第一座人民城市，百团大战主战场</p>
+            </div>
+        </div>
+        
+        <h2 class="page-title">阳泉红色历史</h2>
+        
+        <div class="page-section">
+            <h2 class="section-title">百团大战在阳泉</h2>
+            
+            <div class="content-block">
+                <div class="content-img">
+                    <img src="百团大战.jpg" alt="百团大战示意图">
+                </div>
+                <div class="content-text">
+                    <h3>百团大战概述</h3>
+                    <p>百团大战是抗日战争时期八路军在华北地区发动的一次大规模进攻和反"扫荡"战役，因参战兵力达105个团故称"百团大战"。这场战役由彭德怀指挥，于1940年8月至12月进行。</p>
+                    <p>阳泉作为正太铁路的重要节点，成为百团大战的主战场之一。八路军在这里与日军展开了激烈的战斗，特别是狮脑山阻击战，成为百团大战中最为惨烈的战斗之一。</p>
+                    <p>百团大战打破了日军的"囚笼政策"，牵制了日军的大量兵力，有力地配合了国民党军作战，极大地振奋了全国的抗战信心。这场战役不仅重创了日军的交通线和据点，更重要的是打破了日军不可战胜的神话，增强了中国人民抗战必胜的信心。</p>
+                    <p>阳泉作为百团大战的主战场，见证了八路军英勇顽强的战斗精神。在战役中，八路军以劣势装备对抗装备精良的日军，展现了中国人民不畏强敌、敢于斗争的英雄气概。这场战役的胜利，为中国人民抗日战争的最终胜利奠定了重要基础。</p>
+                    <p>百团大战的胜利，不仅打击了日军的嚣张气焰，更重要的是证明了中国共产党领导的抗日武装力量具有战胜强敌的能力。这场战役的胜利，极大地鼓舞了全国人民的抗战信心，为抗日战争的最终胜利作出了重要贡献。</p>
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>狮脑山阻击战</h3>
+                    <p>狮脑山位于阳泉市区西南部，海拔1160米，是阳泉的制高点，控制着正太铁路的咽喉。1940年8月20日，百团大战打响后，八路军129师385旅769团和14团奉命抢占狮脑山。</p>
+                    <p>八路军将士在狮脑山上与日军激战七昼夜，击退了日军在飞机、大炮掩护下的多次疯狂进攻。日军先后调集精锐部队增援，但始终未能攻克八路军阵地。</p>
+                    <p>狮脑山阻击战的成功，保证了正太铁路破袭战的顺利进行，为百团大战第一阶段作战的胜利作出了重要贡献。这场阻击战展现了八路军顽强的战斗意志和出色的战术素养。</p>
+                    <p>在狮脑山阻击战中，八路军将士在极端困难的条件下坚守阵地，面对日军的猛烈炮火和多次冲锋，他们用血肉之躯筑起了钢铁长城。许多战士在战斗中壮烈牺牲，用生命捍卫了阵地，为战役的胜利作出了不可磨灭的贡献。</p>
+                    <p>如今，狮脑山上建有百团大战纪念碑和纪念馆，成为后人缅怀革命先烈、传承红色基因的重要场所。每年都有大量游客和青少年前来参观学习，接受爱国主义教育。狮脑山阻击战的精神，永远激励着中国人民奋勇前进。</p>
+                </div>
+                <div class="content-img">
+                    <img src="百馆.jpg" alt="狮脑山战斗遗址">
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-img">
+                    <img src="正太铁路.jpg" alt="正太铁路破袭战">
+                </div>
+                <div class="content-text">
+                    <h3>正太铁路破袭战</h3>
+                    <p>正太铁路（正定至太原）是连接山西与河北的重要交通线，也是日军"囚笼政策"的重要组成部分。百团大战第一阶段的主要任务就是破袭正太铁路。</p>
+                    <p>八路军在阳泉段对正太铁路进行了大规模破袭，破坏铁路、桥梁、隧道，袭击日军据点，使正太铁路瘫痪达一个月之久。</p>
+                    <p>正太铁路破袭战沉重打击了日军的交通运输线，切断了日军的物资补给，为后续作战创造了有利条件。这场破袭战不仅破坏了日军的交通线，更重要的是打乱了日军的战略部署。</p>
+                    <p>在破袭战中，八路军和当地民兵密切配合，采用灵活多变的战术，对铁路设施进行了全面破坏。他们炸毁桥梁、拆除铁轨、破坏隧道，使正太铁路陷入瘫痪。同时，八路军还袭击了沿线的日军据点，消灭了大量敌人。</p>
+                    <p>正太铁路破袭战的胜利，充分体现了人民战争的威力。在战斗中，广大人民群众积极支援前线，为八路军提供情报、粮食和运输保障，形成了军民团结抗战的生动局面。这场战役的胜利，为后续的抗日斗争积累了宝贵经验。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-section">
+            <h2 class="section-title">其他重要战役</h2>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>七亘大捷</h3>
+                    <p>1937年10月，八路军129师386旅在平定县七亘村连续两次伏击日军，取得了重大胜利，史称"七亘大捷"。</p>
+                    <p>七亘大捷是八路军出师华北抗日前线后取得的一次重要胜利，打破了"日军不可战胜"的神话，鼓舞了全国人民的抗战信心。</p>
+                    <p>刘伯承元帅在总结七亘伏击战时说："兵无常势，水无常形。用兵之妙，存乎一心。"七亘大捷成为军事史上的经典战例。</p>
+                    <p>在七亘伏击战中，八路军充分利用地形优势，在日军必经之路上设伏。当日军进入伏击圈后，八路军突然发起攻击，打得日军措手不及。这场战斗歼灭了大批日军，缴获了大量武器装备。</p>
+                    <p>七亘大捷的胜利，不仅打击了日军的嚣张气焰，更重要的是证明了八路军具有战胜强敌的能力。这场胜利极大地鼓舞了抗日军民的士气，为后续的抗日斗争积累了宝贵经验。</p>
+                    <p>七亘伏击战体现了刘伯承元帅高超的军事指挥艺术。他准确判断敌情，巧妙选择伏击地点，在同一个地点连续两次设伏，取得了出人意料的战果。这种战术创新在军事史上具有重要价值。</p>
+                </div>
+                <div class="content-img">
+                    <img src="七亘大捷.JPG" alt="七亘大捷遗址">
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-section">
+            <h2 class="section-title">中共创建第一城</h2>
+            <div class="content-block">
+                <div class="content-img">
+                    <img src="第一.jpg" alt="阳泉建市历史图片">
+                </div>
+                <div class="content-text">
+                    <h3>阳泉解放与建市</h3>
+                    <p>1947年5月2日，晋冀鲁豫野战军攻克阳泉，阳泉获得解放。5月4日，中共阳泉市委和阳泉市人民政府正式成立，阳泉成为中国共产党创建的第一座人民城市。</p>
+                    <p>阳泉的解放和建市，是中国共产党从农村走向城市的重要标志，为中国共产党管理城市积累了宝贵经验。</p>
+                    <p>阳泉建市后，迅速恢复生产，支援前线，为解放战争的胜利作出了重要贡献。</p>
+                    <p>阳泉作为中国共产党创建的第一座人民城市，具有重要的历史意义。它标志着中国共产党开始从农村根据地转向城市管理，为后来解放更多城市和管理新中国奠定了基础。</p>
+                    <p>在阳泉建市过程中，中国共产党探索了一套完整的城市管理模式。包括建立人民政权、恢复工业生产、维护社会秩序、改善民生等方面。这些经验后来被推广到其他新解放的城市。</p>
+                    <p>阳泉建市后，立即着手恢复煤炭生产，为前线提供能源保障。同时，还建立了完整的行政体系，开展土地改革，改善人民生活。这些措施赢得了人民群众的广泛支持。</p>
+                </div>
+            </div>
+            
+            <div class="content-block">
+                <div class="content-text">
+                    <h3>第一座人民城市的意义</h3>
+                    <p>阳泉作为中国共产党创建的第一座人民城市，具有重要的历史意义：</p>
+                    <ul>
+                        <li>为中国共产党管理城市积累了宝贵经验</li>
+                        <li>培养了大批城市管理干部</li>
+                        <li>探索了城市工作的新方法</li>
+                        <li>为后来解放更多城市和管理新中国奠定了基础</li>
+                    </ul>
+                    <p>阳泉的建市经验被推广到其他新解放的城市，对新中国城市管理体制的形成产生了重要影响。</p>
+                    <p>在阳泉的城市管理实践中，中国共产党形成了一套完整的城市工作方法。包括如何接管城市、如何恢复生产、如何建立人民政权、如何维护社会秩序等。这些经验对于后来解放大城市具有重要参考价值。</p>
+                    <p>阳泉建市过程中培养的大批干部，后来成为管理其他城市的重要力量。他们在阳泉积累的经验，为新中国城市管理体系的建立作出了重要贡献。</p>
+                    <p>阳泉作为第一座人民城市，其历史地位不可替代。它不仅是中国共产党城市工作的开端，更是新中国城市管理体制的雏形。研究阳泉建市的历史，对于理解中国共产党城市工作的发展历程具有重要意义。</p>
+                </div>
+                <div class="content-img">
+                    <img src="第一 (2).jpg" alt="第一座人民城市纪念">
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-section">
+            <h2 class="section-title">阳泉红色历史时间轴</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1937年10月</h3>
+                        <p>七亘大捷，八路军在平定县七亘村连续两次伏击日军，取得重大胜利。</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>1940年8月</h3>
+                        <p>百团大战爆发，阳泉成为主战场之一，狮脑山阻击战激烈进行。</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1940年8-9月</h3>
+                        <p>正太铁路破袭战，八路军对阳泉段铁路进行大规模破坏。</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>1947年5月2日</h3>
+                        <p>阳泉获得解放，晋冀鲁豫野战军攻克阳泉。</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1947年5月4日</h3>
+                        <p>中共阳泉市委和阳泉市人民政府正式成立，阳泉成为中国共产党创建的第一座人民城市。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <h3>阳泉 - 红色摇篮</h3>
+            <ul class="footer-links">
+                <li><a href="张领部分.html">首页</a></li>
+                <li><a href="0.2.html">红色摇篮</a></li>
+                <li><a href="0.3.html">忠义藏风</a></li>
+                <li><a href="0.4.html">雄关山水</a></li>
+            </ul>
+            <p class="copyright">© 2023 阳泉家乡介绍网站 | 设计制作</p>
+        </div>
+    </footer>
+</body>
+</html>
